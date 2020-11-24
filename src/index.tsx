@@ -22,14 +22,17 @@ import Page from './components/Page';
 import Sidebar from './components/Sidebar';
 import Field from './components/Field';
 import Dialog from './components/Dialog';
+import CustomSelectField from "./components/CustomSelectField";
 
 import LocalhostWarning from './components/LocalhostWarning';
 
 if (process.env.NODE_ENV === 'development' && window.self === window.top) {
   // You can remove this if block before deploying your app
+  console.log('development');
   const root = document.getElementById('root');
   render(<LocalhostWarning />, root);
 } else {
+  console.log('production', window.top);
   init((sdk: BaseExtensionSDK) => {
     const root = document.getElementById('root');
 
